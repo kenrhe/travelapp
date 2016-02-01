@@ -4,4 +4,3 @@ echo "Please enter a comment:"
 read COMMENT
 git commit -m "$COMMENT"
 git push origin master
-git push heroku master
