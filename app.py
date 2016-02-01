@@ -1,6 +1,6 @@
 '''
-Authored by: Kenneth Rhee
-Email: kennethhrhee@gmail.com
+Authored by: Kenneth Rhee, Joe Goodman
+Email: kennethhrhee@gmail.com, goodman.a.joseph@gmail.com
 '''
 
 from routes.browse import app_browse
