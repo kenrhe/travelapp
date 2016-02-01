@@ -7,7 +7,6 @@ from routes.browse import app_browse
 from flask import render_template, request
 from config import app
 import os
-# from config import app, db
 
 app.register_blueprint(app_browse)
 
@@ -17,6 +16,10 @@ app.register_blueprint(app_browse)
 @app.route('/')
 def index():
 	return render_template('index.html')
+
+@app.route('/cities')
+def cities():
+    return render_template('cities.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
