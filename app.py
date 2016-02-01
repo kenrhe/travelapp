@@ -1,3 +1,8 @@
+'''
+Authored by: Kenneth Rhee
+Email: kennethhrhee@gmail.com
+'''
+
 from routes.browse import app_browse
 from flask import render_template, request
 from config import app
