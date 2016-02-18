@@ -1,5 +1,6 @@
 .env
 venv
+dev_config.cfg
 
 ### OSX ###
 .DS_Store
@@ -97,3 +98,6 @@ target/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Python
+*.pyc
