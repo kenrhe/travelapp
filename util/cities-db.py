@@ -2,6 +2,9 @@ from pymongo import MongoClient
 import pymongo
 import sys
 
+def clean(word):
+    return word.lower().strip().replace(' ', '-')
+
 mc = MongoClient('ip address')
 db = mc.travelapp
 
@@ -13,29 +16,40 @@ test = True
 #print info
 for line in lines:
     info = line.split(',')
-    city = info[1]
-    state_code = info[2]
-    state = info[3]
+    print info
+    if info[0] == 'id':
+        continue
+    city = clean(info[1])
+    state_code = clean(info[3])
+    state = clean(info[4])
     country_code = 'us'
 
-    zip_codes = info[4].split(',')
-    lat = info[6]
-    lon = info[7]
-    
-    population = info[9]
+    z = info[5].split(',')
+    zip_codes = z if type(z) is list else [z]
+    try:
+        lat = float(info[7])
+        lon = float(info[8])
+    except ValueError:
+        lat = 0.0
+        lon = 0.0
+    try:
+        population = int(info[10])
+    except ValueError:
+        population = 0
+
     if (test):
-        print info
-        # print "name = " + city
-        # print "state code = " + state_code
-        # print "state = " + state
-        # print "zip = " + zip_codes
-        # print "lat = " + lat
-        # print "lon = " + lon
-        # print "population = " + population
-        # print "############################"
+        # print info
+        print "name = %s" % city
+        print "state code = %s" % state_code
+        print "state = %s" % state
+        print "zip = %s" % str(zip_codes)
+        print "lat = %f" % lat
+        print "lon = %f" % lon
+        print "population = %i" % population
+        print "############################"
     else:
         # try:
-        print info[6]
+        # print info[6]
         query = 'us/'+info[3].lower()+'/'+info[0].lower()
         json = {
             'state_full' : info[3].lower(),
