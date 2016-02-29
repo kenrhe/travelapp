@@ -1,6 +1,7 @@
 .env
 venv
 dev_config.cfg
+push.sh
 
 ### OSX ###
 .DS_Store
@@ -9,7 +10,6 @@ dev_config.cfg
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*

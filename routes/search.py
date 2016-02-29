@@ -3,7 +3,13 @@ from config import db
 
 app_search = Blueprint('search', __name__)
 
-@app_search.route('/search')
+@app_search.route('/search', methods=['GET', 'POST'])
 def search():
-    return db.cities.find()
-    return render_template('search.html')
+    item = {}
+
+    if request.method == 'POST':
+        form = request.form
+        city = db.cities.find_one({"name" : form['text'].lower().strip() })
+        item['city'] = city
+    
+    return render_template('search.html', **item)
