@@ -25,12 +25,14 @@
 		<h1>Browse Rated Hotels</h1>
 	</div>
 	<div class="row">
-	{% for hotel in hotels %}
+	{% for city in cities %}
 		<div class="mason-item col-sm-6 col-md-3">
 			<div class="thumbnail">
 				<div class="caption">
-					<h4>{{hotel.name}}</h4>
-					<p>{{hotel.rating}}</p>
+					<h4>{{city.name}}</h4>
+					<p>{{city.population}}</p>
+					<p>{{city.country}}</p>
+					<p>{{city.ratings}}</p>
 					<p><a href="{{ ''.join(['/browse/', hotel.url]) }}" class="btn btn-primary" role="button">Reviews</a></p>
 				</div>
 			</div>
@@ -38,4 +40,5 @@
 	{% endfor %}
 	</div>
 </div>
+
 {% endblock %}
