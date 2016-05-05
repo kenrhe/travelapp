@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 
 {% block header %}
-  <link type="text/css" rel="stylesheet" href="/static/css/hotels.css"/> 
+  <link type="text/css" rel="stylesheet" href="/static/css/city.css"/> 
 {% endblock %}
 
 {% block content %}
 <div class="comment-page-container">
 <div class="page-header"> 
-  <h1>{{hotel.name}}<small> Average rating: {{hotel.rating}}</small></h1>
+  <h1>{{city.name}}<small> Average rating: {{city.rating}}</small></h1>
 </div>
+  <h2>Activities: </h2>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h3 class="list-group-item-heading">{{activity.name}}</h3>
+      <p class="list-group-item-text">{{activity.description}}</p>
+      <h6 class="list-group-item-heading"><small>{{activity.rating}}</small></h6
+    <li>
+  </ul>
   <ul class="list-group">
   {% for comment in comments %}
     <li class="list-group-item">
