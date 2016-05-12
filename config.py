@@ -7,8 +7,9 @@ application = Flask(__name__)
 # try:
 application.config.from_pyfile("dev_config.cfg")
 application.config['SERVER'] = 'local server'
-mc = MongoClient( application.config['DATABASE_IP'], int(application.config['DATABASE_PORT']) )
+mc = MongoClient( application.config['MONGODB_URI'] )
 db = mc.travelapplication
+
 print(">>> Development configuration file loaded.")
 # except:
 #   #======================================

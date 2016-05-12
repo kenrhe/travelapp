@@ -5,14 +5,17 @@ import sys
 def clean(word):
     return word.lower().strip().replace(' ', '-')
 
-mc = MongoClient('ip address')
-db = mc.travelapp
+uri = 'mongodb://admin:travelapp123@ds011238.mlab.com:11238/travelapplication'
+mc = MongoClient(uri)
+db = mc.travelapplication
 
 us_cities = open('us-cities-sample.csv').read()
 lines = us_cities.split('\r')
 print "len: " + str(len(lines))
 
-test = True
+cities = []
+
+test = False
 #print info
 for line in lines:
     info = line.split(',')
@@ -48,21 +51,21 @@ for line in lines:
         print "population = %i" % population
         print "############################"
     else:
-        # try:
-        # print info[6]
-        query = 'us/'+info[3].lower()+'/'+info[0].lower()
+
+        query = 'us/'+ state_code +'/'+ city
         json = {
-            'state_full' : info[3].lower(),
-            'state_code' : info[2].lower(),
-            'zip_codes' : info[4],
+            '_id' : query,
+            'city' : city,
+            'state_code' : state_code,
+            'state' : state,
+            'zip_codes' : zip_codes,
             'loc' : {
                 'type' : 'Point',
-                'coordinates' : [float(str(info[6])),float(str(info[7]))]
+                'coordinates' : [lon, lat]
             },
-            'population' : ((int)(info[9]))
+            'population' : population
         }
-        #db.UPDATE_STUFF.update( query , { '$set' : update }, upsert=True )
-        print 'created ' + info[0]
+        db.cities.insert(json)
         # except:
         #     print "not valid"
     #count = count + 1
