@@ -7,7 +7,7 @@
 {% block content %}
 <div class="comment-page-container">
 <div class="page-header"> 
-  <h1>{{city.name}}<small> Average rating: {{city.rating}}</small></h1>
+  <h1>{{city.city}}<small> Average rating: {{city.rating}}</small></h1>
 </div>
   <h2>Activities: </h2>
   <ul class="list-group">
@@ -15,7 +15,7 @@
       <h3 class="list-group-item-heading">activity name</h3>
       <p class="list-group-item-text">activity.description</p>
       <h6 class="list-group-item-heading"><small>activity.rating</small></h6
-    <li>
+    </li>
   </ul>
   <ul class="list-group">
   {% for key, value in city.iteritems() %}
