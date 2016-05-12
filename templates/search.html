@@ -2,6 +2,18 @@
 
 {% block header %}
 <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+
+ <script>
+    (function($) {
+      $( document ).ready(function() {
+       var $container = $( '.row' );
+       $container.masonry({
+         itemSelector: '.mason-item'
+        });
+        var msnry = $container.data('masonry');
+     })
+   })(jQuery)
+  </script>
 {% endblock %}
 
 {% block content %}
