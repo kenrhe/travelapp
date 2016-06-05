@@ -1,37 +1,27 @@
 {% extends "base.html" %}
 
 {% block header %}
-<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+<link rel="stylesheet" type="text/css" href="/static/css/search.css">
 
- <script>
-    (function($) {
-      $( document ).ready(function() {
-       var $container = $( '.row' );
-       $container.masonry({
-         itemSelector: '.mason-item'
-        });
-        var msnry = $container.data('masonry');
-     })
-   })(jQuery)
-  </script>
 {% endblock %}
 
 {% block content %}
-  <div ></div>
-  <div class="initial-background-container" style="background-image: url(static/yosemite.jpg);"></div>
-  <div class="initial-cover-container" style="background-image: url("/static/yosemite.jpg");">
+    <div class="initial-background-container" style="background-image: url(static/img/nature.jpg);"></div>
     <div class="initial-cover">
-      <div class="center-text">
-        <h1>Travel Application</h1>
-        <p>Where do you want to go?</p>
-        <form action="/search" method="post">
-          <input name="text" type="text" />
-          <button class="" type="submit">Search</button>
-        </form>
-        
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <button type="button" id="initial-cover-remove">Search</button>
-      </div>
+        <div class="center-text">
+            <h1>Dream Finder</h1>
+            <p>Which city do you want to go to?</p>
+            <form action="/search" method="post">
+                 <div class="search-form">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="e.g. San Francisco" name="text">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Find My Dream!</button>
+                      </span>
+                    </div>
+                  </div>
+            </form>
+        </div>
     </div>
   </div>
 {% endblock %}

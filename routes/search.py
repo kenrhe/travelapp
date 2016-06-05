@@ -11,7 +11,7 @@ def search():
 
     if request.method == 'POST':
         form = request.form
-        city_data = db.cities.find_one({"city" : form['text'].lower().strip() })
+        city_data = db.cities.find_one({"city" : form['text'].lower().strip().replace(" ", "-") })
 
         return redirect('/' + city_data['_id'])
 

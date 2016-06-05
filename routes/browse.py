@@ -8,7 +8,7 @@ app_browse = Blueprint('browse', __name__)
 def browse():
 	return render_template('browse.html')
 
-@app_browse.route('/<country>/<state>/<city>')
-def city(country, state, city):
-	city = db.cities.find_one({"_id" : country + '/' + state + '/' + city })
+@app_browse.route('/us/<state>/<city>')
+def city(state, city):
+	city = db.cities.find_one({"_id" : 'us/' + state + '/' + city })
 	return render_template('city.html', city=city)

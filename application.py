@@ -5,7 +5,7 @@ Email: kennethhrhee@gmail.com, thejoonshow@gmail.com, goodman.a.joseph@gmail.com
 
 from routes.browse import app_browse
 from routes.search import app_search
-from flask import render_template, request
+from flask import render_template, request, send_from_directory
 from config import application, db
 import os
 
