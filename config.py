@@ -5,12 +5,12 @@ from flask import Flask
 application = Flask(__name__)
 
 try:
-application.config.from_pyfile("dev_config.cfg")
-application.config['SERVER'] = 'local server'
-mc = MongoClient( application.config['MONGODB_URI'] )
-db = mc.travelapplication
+  application.config.from_pyfile("dev_config.cfg")
+  application.config['SERVER'] = 'local server'
+  mc = MongoClient( application.config['MONGODB_URI'] )
+  db = mc.travelapplication
 
-print(">>> Development configuration file loaded.")
+  print(">>> Development configuration file loaded.")
 except:
   #======================================
   # Try to get amazon ec2 container tags

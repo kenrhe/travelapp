@@ -11,13 +11,38 @@
     <div class="content">
         <p>The city of <b>{{ city.city.title() }}</b> is located in {% if city.state|length > 2 %}{{ city.state.title() }}{% else %}{{ city.state_code.upper() }}{% endif %}, USA. Its latitude and longitude are ({{ city.loc.coordinates.1 }}, {{ city.loc.coordinates.0 }}). It has the following zip codes: {% for zip in city.zip_codes %}{{ zip }}{% if not loop.last %}, {%endif%}{% endfor %}. {% if city.population is not none %}This city has a population of {{ city.population }}.{% endif %}</p>
         <h2>Activities: </h2>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <h3 class="list-group-item-heading">activity name</h3>
-            <p class="list-group-item-text">activity.description</p>
-            <h6 class="list-group-item-heading"><small>activity.rating</small></h6>
-          </li>
-        </ul>
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="thumbnail">
+                  <img src="/static/img/activities/educational.jpg" alt="...">
+                  <div class="caption">
+                    <h3>Education</h3>
+                    <p>Who says learning can’t be fun? Find museums and galleries in {{ city.city.title() }}.</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Discover</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="thumbnail">
+                  <img src="/static/img/activities/beach.jpg" alt="...">
+                  <div class="caption">
+                    <h3>Beach</h3>
+                    <p>Surfs up! Find popular beach destinations at {{ city.city.title() }} on your next summer trip.</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Discover</a></p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="thumbnail">
+                  <img src="/static/img/activities/beach.jpg" alt="...">
+                  <div class="caption">
+                    <h3>City Life</h3>
+                    <p>Surfs up! Find popular beach destinations at {{ city.city.title() }} on your next summer trip.</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Discover</a></p>
+                  </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
