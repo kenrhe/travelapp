@@ -12,7 +12,7 @@
         <p>The city of <b>{{ city.city.title() }}</b> is located in {% if city.state|length > 2 %}{{ city.state.title() }}{% else %}{{ city.state_code.upper() }}{% endif %}, USA. Its latitude and longitude are ({{ city.loc.coordinates.1 }}, {{ city.loc.coordinates.0 }}). It has the following zip codes: {% for zip in city.zip_codes %}{{ zip }}{% if not loop.last %}, {%endif%}{% endfor %}. {% if city.population is not none %}This city has a population of {{ city.population }}.{% endif %}</p>
         <h2>Activities: </h2>
         <div class="row">
-            <div class="col-sm-4 col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="/static/img/activities/educational.jpg" alt="...">
                   <div class="caption">
@@ -22,7 +22,7 @@
                   </div>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="/static/img/activities/beach.jpg" alt="...">
                   <div class="caption">
@@ -32,7 +32,7 @@
                   </div>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="/static/img/activities/city.jpg" alt="...">
                   <div class="caption">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         <div class="row">
-            <div class="col-sm-4 col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="/static/img/activities/dining.jpg" alt="...">
                   <div class="caption">
