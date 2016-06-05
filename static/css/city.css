@@ -14,3 +14,7 @@ p {
 h1 {
     font-size: 60px;
 }
+
+.content {
+    margin-left:24px;
+}
