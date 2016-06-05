@@ -9,7 +9,7 @@
 <div class="initial-cover comment-page-container">
     <h1 id="city-name">{{ city.city.title() }}</h1>
     <div class="content">
-        <p>The city of <b>{{ city.city.title() }}</b> is located in {% if city.state|length > 2 %}{{ city.state.title() }}{% else %}{{ city.state_code.upper() }}{% endif %}, USA.
+        <p>The city of <b>{{ city.city.title() }}</b> is located in {% if city.state|length > 2 %}{{ city.state.title() }}{% else %}{{ city.state_code.upper() }}{% endif %}, USA. Its latitude and longitude are ({{ city.loc.coordinates.1 }}, {{ city.loc.coordinates.0 }}). It has the following zip codes: {% for zip in city.zip_codes %}{{ zip }}{% if not loop.last %}, {%endif%}{% endfor %}. {% if city.population is not none %}This city has a population of {{ city.population }}.{% endif %}</p>
         <h2>Activities: </h2>
         <ul class="list-group">
           <li class="list-group-item">
@@ -17,11 +17,6 @@
             <p class="list-group-item-text">activity.description</p>
             <h6 class="list-group-item-heading"><small>activity.rating</small></h6>
           </li>
-        </ul>
-        <ul class="list-group">
-        {% for key, value in city.iteritems() %}
-          {{ key }} : {{ value }}
-        {% endfor %}
         </ul>
     </div>
 </div>
