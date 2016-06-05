@@ -11,6 +11,7 @@ try:
   db = mc.travelapplication
 
   print(">>> Development configuration file loaded.")
+
 except:
   #======================================
   # Try to get amazon ec2 container tags
