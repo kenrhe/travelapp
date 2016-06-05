@@ -1,0 +1,9 @@
+body {
+    background-color: #EEEEEE;
+    text-align: center;
+}
+
+.search-form {
+    width: 360px;
+    margin: 0 auto;
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <link type="text/css" rel="stylesheet" href="/static/css/city.css"/> 
+{% endblock %}
+
+{% block content %}
+<div class="initial-background-container" style="background-image: url(/static/img/city.jpg);"></div>
+<div class="initial-cover comment-page-container">
+    <h1 id="city-name">{{ city.city.title() }}</h1>
+
+    <p>The city of <b>{{ city.city.title() }}</b> is located in {{ city.state_code.upper() }}, USA.
+    <h2>Activities: </h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3 class="list-group-item-heading">activity name</h3>
+        <p class="list-group-item-text">activity.description</p>
+        <h6 class="list-group-item-heading"><small>activity.rating</small></h6>
+      </li>
+    </ul>
+    <ul class="list-group">
+    {% for key, value in city.iteritems() %}
+      {{ key }} : {{ value }}
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
