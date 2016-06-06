@@ -5,8 +5,14 @@
 
 .page-header {
     margin-top: 96px;
+    margin-left: 96px;
 }
 
 body {
     background-color: #EEEEEE;
+}
+
+.about-us {
+    width:80%;
+    margin: 0 auto;
 }

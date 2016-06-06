@@ -12,3 +12,8 @@ def browse():
 def city(state, city):
 	city = db.cities.find_one({"_id" : 'us/' + state + '/' + city })
 	return render_template('city.html', city=city)
+
+@app_browse.route('/locations')
+def locations():
+    cities = db.cities.find()
+    return render_template('locations.html', cities=cities)
